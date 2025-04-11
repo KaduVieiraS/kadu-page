@@ -1,0 +1,249 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio do Kadu</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      min-height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0a0a0a;
+      color: #e0b3ff;
+    }
+    nav.menu {
+      background-color: #100016;
+      padding: 20px;
+      min-width: 200px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      box-shadow: 2px 0 10px rgba(128, 0, 128, 0.3);
+    }
+    nav.menu h2 {
+      margin-bottom: 20px;
+      color: #bb66ff;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+    nav.menu ul {
+      list-style: none;
+      padding: 0;
+    }
+    nav.menu ul li {
+      margin: 15px 0;
+    }
+    nav.menu ul li a {
+      text-decoration: none;
+      color: #d4a3ff;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav.menu ul li a:hover {
+      color: #ffffff;
+    }
+    main {
+      margin-left: 220px;
+      padding: 40px 20px;
+      flex: 1;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #d18fff;
+      margin-bottom: 10px;
+    }
+    .subtitulo {
+      font-style: italic;
+      color: #b277ff;
+      margin-bottom: 25px;
+    }
+    .card {
+      background-color: #230026;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(162, 0, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 20px;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 40px rgba(180, 80, 255, 0.4);
+    }
+    a {
+      color: #c77dff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 1rem;
+      resize: none;
+      background-color: #1a001f;
+      color: #f8e1ff;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #b94dff;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: #9900cc;
+    }
+    pre {
+      background-color: #100016;
+      padding: 15px;
+      border-radius: 10px;
+      overflow-x: auto;
+      color: #e0e0e0;
+    }
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      nav.menu {
+        position: static;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      nav.menu ul {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+      }
+      main {
+        margin-left: 0;
+        margin-top: 20px;
+        padding: 20px;
+      }
+      h1 {
+        font-size: 2rem;
+        text-align: center;
+      }
+      .subtitulo {
+        text-align: center;
+      }
+      .card {
+        margin: 0 auto;
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="menu">
+    <h2>Portifólio do Kadu</h2>
+    <ul>
+      <li><a href="#" onclick="mostrarPagina('inicio')">Início</a></li>
+      <li><a href="#" onclick="mostrarPagina('projetos')">Projetos</a></li>
+      <li><a href="#" onclick="mostrarPagina('contato')">Contato</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section id="inicio" class="pagina">
+      <h1>Sobre Mim</h1>
+      <p class="subtitulo">Explorando e Aprendendo Desenvolvimento de Softwares</p>
+      <div class="card">
+        <p>Olá, me chamo <strong>Carlos Eduardo</strong>, e estou ingressando no mundo da programação. Dentro deste portfólio pretendo colocar meus projetos iniciais. Estou cursando Análise e Desenvolvimento de Sistemas, e pretendo aprender muito nesta jornada!<br> Clique em <strong>Projetos</strong> para ver mais!</p>
+      </div>
+    </section>
+
+    <section id="projetos" class="pagina" style="display:none;">
+      <h1>Projetos</h1>
+
+      <div class="card">
+        <h2>Texto para Voz</h2>
+        <textarea id="texto" placeholder="Digite aqui o texto que deseja ouvir..."></textarea>
+        <button onclick="falarTexto()">Ouvir</button>
+      </div>
+
+      <div class="card">
+        <h2>Tradutor PT-EN</h2>
+        <textarea id="inputText" placeholder="Digite o texto em português..."></textarea>
+        <button onclick="traduzir()">Traduzir</button>
+        <textarea id="outputText" placeholder="Tradução em inglês..." readonly></textarea>
+      </div>
+
+      <div class="card">
+        <h2>Calculadora Científica em C</h2>
+        <p>Projeto em linguagem C com várias operações matemáticas:</p>
+        <pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;math.h&gt;
+
+void menu() {
+    printf("\n*** Calculadora Científica ***\n");
+    printf("1. Soma\n");
+    printf("2. Subtração\n");
+    printf("3. Multiplicação\n");
+    printf("4. Divisão\n");
+    printf("5. Potência\n");
+    printf("6. Raiz Quadrada\n");
+    printf("7. Seno\n");
+    printf("8. Cosseno\n");
+    printf("9. Tangente\n");
+    printf("10. Logaritmo\n");
+    printf("0. Sair\n");
+}
+// Código continua...
+        </pre>
+        <a href="data:text/plain;charset=utf-8,Calculadora%20em%20C%20com%20operações%20matemáticas." download="calculadora.c">Baixar Código</a>
+      </div>
+    </section>
+
+    <section id="contato" class="pagina" style="display:none;">
+      <h1>Entre em Contato</h1>
+      <div class="card">
+        <p>Instagram: <a href="https://instagram.com/thisiskadu" target="_blank">@thisiskadu</a></p>
+        <p>WhatsApp: <a href="https://wa.me/5551995875807" target="_blank">+55 51 99587-5807</a></p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function mostrarPagina(paginaId) {
+      const paginas = document.querySelectorAll(".pagina");
+      paginas.forEach(pagina => pagina.style.display = "none");
+      document.getElementById(paginaId).style.display = "block";
+    }
+
+    function falarTexto() {
+      const texto = document.getElementById("texto").value;
+      if (texto.trim() === "") return;
+      const fala = new SpeechSynthesisUtterance(texto);
+      fala.lang = 'pt-BR';
+      window.speechSynthesis.speak(fala);
+    }
+
+    async function traduzir() {
+      const texto = document.getElementById("inputText").value;
+      const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(texto)}&langpair=pt|en`;
+      const resposta = await fetch(url);
+      const dados = await resposta.json();
+      document.getElementById("outputText").value = dados.responseData.translatedText;
+    }
+  </script>
+</body>
+</html>
